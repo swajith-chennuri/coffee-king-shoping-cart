@@ -1,6 +1,5 @@
 let cart = [];
 
-// Function to add item to cart
 function addToCart(name, price) {
     let item = cart.find(product => product.name === name);
     if (item) {
@@ -11,7 +10,6 @@ function addToCart(name, price) {
     updateCartDisplay();
 }
 
-// Function to update cart UI
 function updateCartDisplay() {
     let cartDiv = document.getElementById('cart');
     cartDiv.innerHTML = '';
@@ -36,7 +34,6 @@ function updateCartDisplay() {
     document.getElementById('total').textContent = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 }
 
-// Checkout function (Now displays receipt only when clicked)
 function checkout() {
     let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     let amountPaid = parseFloat(document.getElementById('amount-paid').value);
@@ -60,7 +57,6 @@ function checkout() {
     }
 }
 
-// Reset Cart
 function resetCart() {
     cart = [];
     document.getElementById('cart').innerHTML = '';
@@ -70,7 +66,6 @@ function resetCart() {
     updateCartDisplay();
 }
 
-// Dark Mode Toggle
 document.getElementById('toggle-theme').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
